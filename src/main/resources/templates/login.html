@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Bookside</title>
+	<div th:replace="layout/head::head"></div>
+</head>
+
+<body>
+	<!--================ Start header Top Area =================-->
+	<section class="header-top">
+		<div class="container box_1170">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<a href="index.html" class="logo">
+						<img src="img/logo.png" alt="">
+					</a>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 search-trigger">
+					<a href="#" class="search">
+						<i class="lnr lnr-magnifier" id="search"></i></a>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End header top Area =================-->
+
+	<!-- Start header Area -->
+	<header th:replace="layout/header::header"></header>
+	<!-- End header Area -->
+
+	<!-- Start banner Area -->
+	<section class="banner-area relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container box_1170">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<form action="#">
+						<div class="mt-10">
+							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+								   class="common-input mb-20 form-control" required="" type="text">
+						</div>
+						<div class="mt-10">
+							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+								   class="common-input mb-20 form-control" required="" type="text">
+						</div>
+						<div class="mt-10">
+							<button class="genric-btn primary circle text-uppercase" style="float: right;">Send Message</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<!-- start footer Area -->
+	<footer th:replace="layout/footer::footer"></footer>
+	<!-- End footer Area -->
+
+	<div th:replace="layout/script::script"></div>
+</body>
+
+</html>
