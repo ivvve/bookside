@@ -2,16 +2,15 @@ package org.dayside.book.web.book;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dayside.book.web.book.model.NaverBookApiSearchResultModel;
-import org.dayside.book.web.book.model.BookSearchModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 @Controller
 @RequestMapping("/book")
@@ -23,10 +22,14 @@ public class BookController {
     }
 
     @GetMapping("/search")
-    public String bookSearchView(String keyword, @RequestParam(defaultValue = "1") int page,
-                           Model model) {
+    public String bookSearchView(String keyword, Integer page, Model model) throws UnsupportedEncodingException {
         if (StringUtils.isBlank(keyword)) {
             return "book-search";
+        }
+
+        if (page == null) {
+            keyword = URLEncoder.encode(keyword, "UTF-8");
+            return "redirect:/book/search?keyword=" + keyword + "&page=" + 1;
         }
 
         ResponseEntity<NaverBookApiSearchResultModel> booksResult = bookService.getBooks(keyword, page);
