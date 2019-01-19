@@ -1,4 +1,4 @@
-package org.dayside.book.web;
+package org.dayside.book.web.common;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
