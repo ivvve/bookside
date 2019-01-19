@@ -24,8 +24,8 @@ public class NaverApiTests {
     NaverBookApiProperties naverBookApiProperties;
     RestTemplate restTemplate = new RestTemplate();
     HttpEntity<BookNaverApiSearchResultModel> naverBookApiHttpEntity;
-    final String BOOK_SEARCH_URI = "https://openapi.naver.com/v1/search/book.json?display=12&sort=sim&query=스프링부트&start=1";
-
+    final String SPRINGBOOT_BOOK_SEARCH_URI = "https://openapi.naver.com/v1/search/book.json?display=12&sort=sim&query=스프링부트&start=1";
+    final String TOBYSPRING_DETAIL_SEARCH_URI = "https://openapi.naver.com/v1/search/book_adv.xml?d_isbn=8960773433";
 
     @Before
     public void 헤더_setting() {
@@ -39,11 +39,12 @@ public class NaverApiTests {
     @Test
     public void 책_목록_검색() {
         ResponseEntity<BookNaverApiSearchResultModel> naverBookApiResultEntity =
-                restTemplate.exchange(BOOK_SEARCH_URI, HttpMethod.GET,
+                restTemplate.exchange(SPRINGBOOT_BOOK_SEARCH_URI, HttpMethod.GET,
                         naverBookApiHttpEntity, BookNaverApiSearchResultModel.class);
 
         assertThat(naverBookApiResultEntity.getStatusCode(), is(HttpStatus.OK));
         assertThat(naverBookApiResultEntity.getBody().getItems(), is(not(empty())));
     }
+
 
 }
