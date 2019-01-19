@@ -11,4 +11,5 @@ public class BookSearchModel {
     private int price;
     private int discount;
     private String pubdate;
+    private String isbn;
 }
