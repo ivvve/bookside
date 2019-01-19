@@ -35,11 +35,7 @@ public class BookController {
             return "error"; // TODO error page 만들기
         }
 
-        List<BookSearchModel> bookList = booksResult.getBody().getItems();
-
-        if (bookList != null && !bookList.isEmpty()) {
-            model.addAttribute("bookList", bookList);
-        }
+        model.addAttribute("bookSearchResult", booksResult.getBody());
 
         return "book-search";
     }

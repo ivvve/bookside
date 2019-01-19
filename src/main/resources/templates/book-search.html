@@ -4,6 +4,11 @@
 <head>
 	<title>Ruft Blog</title>
 	<div th:replace="layout/head::head"></div>
+	<style>
+		.post-thumb img {
+			height: 350px;
+		}
+	</style>
 </head>
 
 <body>
@@ -26,7 +31,7 @@
 				<section class="post-area">
 
 					<div class="row">
-						<div class="col-lg-3 col-md-4" th:each="book : ${bookList}">
+						<div class="col-lg-3 col-md-4" th:each="book : ${bookSearchResult.items}">
 							<div class="single-post-item">
 								<div class="post-thumb">
 									<img class="img-fluid" th:src="${book.image}" alt="">
