@@ -3,7 +3,7 @@ package org.dayside.book.web.book.model;
 import lombok.Data;
 
 @Data
-public class BookModel {
+public class BookDetailModel {
     private String title;
     private String link;
     private String image;
