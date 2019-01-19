@@ -1,7 +1,7 @@
 package org.dayside.book.web.book;
 
 import org.dayside.book.constant.NaverBookApiProperties;
-import org.dayside.book.web.book.model.BookApiResultModel;
+import org.dayside.book.web.book.model.NaverBookApiSearchResultModel;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,8 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class BookService {
-    private final String bookSearchUrl = "https://openapi.naver.com/v1/search/book.json";
-    private final HttpEntity<BookApiResultModel> naverBookApiHttpEntity;
+    private static final String BOOK_SEARCH_URL = "https://openapi.naver.com/v1/search/book.json";
+    private final HttpEntity<NaverBookApiSearchResultModel> naverBookApiHttpEntity;
 
     public BookService(NaverBookApiProperties naverBookApiProperties) {
         HttpHeaders naverBookApiHttpHeaders= new HttpHeaders();
@@ -22,11 +22,11 @@ public class BookService {
         naverBookApiHttpEntity = new HttpEntity<>(naverBookApiHttpHeaders);
     }
 
-    public ResponseEntity<BookApiResultModel> getBooks(String keyword, int page) {
+    public ResponseEntity<NaverBookApiSearchResultModel> getBooks(String keyword, int page) {
         String query = "?display=12&sort=sim&query=" + keyword + "&start=" + page;
         RestTemplate restTemplate = new RestTemplate();
 
-        return restTemplate.exchange(bookSearchUrl + query, HttpMethod.GET,
-                naverBookApiHttpEntity, BookApiResultModel.class);
+        return restTemplate.exchange(BOOK_SEARCH_URL + query, HttpMethod.GET,
+                naverBookApiHttpEntity, NaverBookApiSearchResultModel.class);
     }
 }
