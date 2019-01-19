@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class BookNaverApiSearchResultModel {
+public class NaverBookApiSearchResultModel {
     private long total;
     private int start;
     private int display;
