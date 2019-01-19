@@ -18,7 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {BookApplication.class})
+@SpringBootTest(classes = {BookApplication.class}) // TODO 통합테스트로 properties를 가져오기엔 너무 비효율적인데...
 public class NaverApiTests {
     @Autowired
     NaverBookApiProperties naverBookApiProperties;
@@ -37,7 +37,7 @@ public class NaverApiTests {
     }
 
     @Test
-    public void test() {
+    public void 책_목록_검색() {
         ResponseEntity<BookNaverApiSearchResultModel> naverBookApiResultEntity =
                 restTemplate.exchange(BOOK_SEARCH_URI, HttpMethod.GET,
                         naverBookApiHttpEntity, BookNaverApiSearchResultModel.class);
@@ -45,4 +45,5 @@ public class NaverApiTests {
         assertThat(naverBookApiResultEntity.getStatusCode(), is(HttpStatus.OK));
         assertThat(naverBookApiResultEntity.getBody().getItems(), is(not(empty())));
     }
+
 }
