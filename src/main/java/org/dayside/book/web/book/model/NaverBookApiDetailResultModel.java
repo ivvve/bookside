@@ -1,5 +1,6 @@
 package org.dayside.book.web.book.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,6 +15,7 @@ public class NaverBookApiDetailResultModel {
         private BookDetailModel item;
     }
 
+    @JsonIgnore
     public BookDetailModel getBookDeatail() {
         return channel.item;
     }
