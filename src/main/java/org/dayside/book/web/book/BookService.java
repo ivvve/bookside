@@ -23,7 +23,8 @@ public class BookService {
     }
 
     public ResponseEntity<NaverBookApiSearchResultModel> getBooks(String keyword, int page) {
-        String query = "?display=12&sort=sim&query=" + keyword + "&start=" + page;
+        int start = (page - 1) * 12 + 1;
+        String query = "?display=12&sort=sim&query=" + keyword + "&start=" + start;
         RestTemplate restTemplate = new RestTemplate();
 
         return restTemplate.exchange(BOOK_SEARCH_URL + query, HttpMethod.GET,
