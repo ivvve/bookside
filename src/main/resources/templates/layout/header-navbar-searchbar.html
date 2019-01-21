@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:fragment="header-navbar">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="header-navbar-searchbar">
     <header id="header">
         <div class="container box_1170 main-menu">
             <div class="row align-items-center justify-content-center d-flex">
@@ -21,6 +21,18 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
+            </div>
+        </div>
+
+        <div class="search_input" id="search_input_box" style="display: block">
+            <div class="container box_1170">
+                <form class="d-flex justify-content-between">
+                    <input type="text" class="form-control" id="book_keyword" name="keyword" placeholder="Search Here">
+                    <input type="text" name="page" value="1" hidden="hidden">
+                    <button class="btn sub-btn" style="color: white; padding-top: 10px;">
+                        <span class="lnr lnr-magnifier"></span>
+                    </button>
+                </form>
             </div>
         </div>
     </header>
