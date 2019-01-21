@@ -1,5 +1,7 @@
 package org.dayside.book.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class BookUtils {
     private BookUtils() {
         throw new IllegalStateException("Utility class");
@@ -14,6 +16,11 @@ public class BookUtils {
     }
 
     public static String toDateFormat(String pubdate) {
+        // api 검색 결과에서 비어 있는 결과가 있는 경우가 있다.
+        if (StringUtils.isBlank(pubdate) || pubdate.length() != 8) {
+            pubdate = "00000000";
+        }
+
         return new StringBuilder(pubdate.substring(0, 4))
                 .append(".")
                 .append(pubdate.substring(4, 6))

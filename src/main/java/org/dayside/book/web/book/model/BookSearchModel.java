@@ -1,7 +1,6 @@
 package org.dayside.book.web.book.model;
 
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 import org.dayside.book.util.BookUtils;
 
 @Data
@@ -28,11 +27,6 @@ public class BookSearchModel {
      * @param pubdate
      */
     public void setPubdate(String pubdate) {
-        // api 검색 결과에서 비어 있는 결과가 있는 경우가 있다.
-        if (StringUtils.isBlank(pubdate)) {
-            pubdate = "00000000";
-        }
-
         this.pubdate = BookUtils.toDateFormat(pubdate);
     }
 
