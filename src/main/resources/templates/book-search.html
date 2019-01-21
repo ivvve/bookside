@@ -2,10 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Ruft Blog</title>
+	<title>책 검색</title>
 	<div th:replace="layout/head::head"></div>
 	<style>
 		.post-thumb img {
+			height: 350px;
+		}
+
+		.post-thumb {
 			height: 350px;
 		}
 	</style>
@@ -18,13 +22,13 @@
 <!--================ End header top Area =================-->
 
 <!-- Start header Area -->
-<header id="header" th:replace="layout/header-navbar::header-navbar">
+<header id="header" th:replace="layout/header-navbar-searchbar::header-navbar-searchbar">
 </header>
 <!-- End header Area -->
 
 <!-- Start main body Area -->
 <div class="main-body section-gap" id="bookList">
-	<div class="container box_1170">
+	<div class="container box_1170" style="padding-top: 50px;">
 		<div class="row">
 			<div class="col-lg-12 post-list">
 				<!-- Start Post Area -->
@@ -45,7 +49,7 @@
 									<div class="blog-meta">
 										<a class="m-gap">
 											<span class="lnr lnr-user"></span>
-											<span th:remove="tag" th:text="${book.author}"></span>
+											<span th:remove="tag" th:utext="${book.author}"></span>
 										</a>
 										<br/>
 
