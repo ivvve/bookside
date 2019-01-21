@@ -6,6 +6,8 @@ const bookDetail = {
     bookDetailModalButton: null,
     bookDetailModal: null,
     bookDetailInfoTable: null,
+
+
     bookList: null,
 
     init() {
@@ -48,5 +50,9 @@ const bookDetail = {
 
     showBookDetailModal() {
         this.bookDetailModalButton.click();
+    },
+
+    hideBookDetailModal() {
+        document.querySelector("#bookDetailModal .close").click();
     }
 }
