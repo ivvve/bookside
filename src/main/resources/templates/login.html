@@ -2,64 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Bookside</title>
+	<title>로그인</title>
 	<div th:replace="layout/head::head"></div>
 </head>
 
 <body>
-	<!--================ Start header Top Area =================-->
-	<section class="header-top">
-		<div class="container box_1170">
-			<div class="row align-items-center justify-content-between">
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<a href="index.html" class="logo">
-						<img src="img/logo.png" alt="">
-					</a>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 search-trigger">
-					<a href="#" class="search">
-						<i class="lnr lnr-magnifier" id="search"></i></a>
-					</a>
-				</div>
+<!--================ Start header Top Area =================-->
+<section th:replace="layout/header-top::header-top">
+</section>
+<!--================ End header top Area =================-->
+
+<!-- Start header Area -->
+<header id="header" th:replace="layout/header-navbar::header-navbar">
+</header>
+<!-- End header Area -->
+
+<!-- Start Align Area -->
+<div class="whole-wrap">
+	<div class="container box_1170">
+		<div class="section-top-border">
+			<div class="mt-10">
+				<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
+			</div>
+			<!-- For Gradient Border Use -->
+			<!-- <div class="mt-10">
+                        <div class="primary-input">
+                            <input id="primary-input" type="text" name="first_name" placeholder="Primary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primary color'">
+                            <label for="primary-input"></label>
+                        </div>
+                    </div> -->
+			<div class="mt-10">
+				<input type="text" name="first_name" placeholder="Primary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primary color'"
+					   required class="single-input-primary">
+			</div>
+			<div class="mt-10">
+				<input type="text" name="first_name" placeholder="Accent color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Accent color'"
+					   required class="single-input-accent">
+			</div>
+			<div class="mt-10">
+				<input type="text" name="first_name" placeholder="Secondary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Secondary color'"
+					   required class="single-input-secondary">
 			</div>
 		</div>
-	</section>
-	<!--================ End header top Area =================-->
+	</div>
+</div>
+<!-- End Align Area -->
 
-	<!-- Start header Area -->
-	<header th:replace="layout/header::header"></header>
-	<!-- End header Area -->
+<!-- start footer Area -->
+<footer th:replace="layout/footer::footer">
+</footer>
+<!-- End footer Area -->
 
-	<!-- Start banner Area -->
-	<section class="banner-area relative">
-		<div class="overlay overlay-bg"></div>
-		<div class="container box_1170">
-			<div class="row d-flex align-items-center justify-content-center">
-				<div class="about-content col-lg-12">
-					<form action="#">
-						<div class="mt-10">
-							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-								   class="common-input mb-20 form-control" required="" type="text">
-						</div>
-						<div class="mt-10">
-							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-								   class="common-input mb-20 form-control" required="" type="text">
-						</div>
-						<div class="mt-10">
-							<button class="genric-btn primary circle text-uppercase" style="float: right;">Send Message</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End banner Area -->
+<div th:replace="layout/common-script::common-script"></div>
 
-	<!-- start footer Area -->
-	<footer th:replace="layout/footer::footer"></footer>
-	<!-- End footer Area -->
-
-	<div th:replace="layout/script::script"></div>
 </body>
 
 </html>
