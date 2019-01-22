@@ -1,4 +1,4 @@
-package org.dayside.book.constant;
+package org.dayside.book.common.constant;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
