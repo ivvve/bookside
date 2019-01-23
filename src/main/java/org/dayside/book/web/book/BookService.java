@@ -1,6 +1,6 @@
 package org.dayside.book.web.book;
 
-import org.dayside.book.constant.NaverBookApiProperties;
+import org.dayside.book.common.constant.NaverBookApiProperties;
 import org.dayside.book.web.book.model.NaverBookApiDetailResultModel;
 import org.dayside.book.web.book.model.NaverBookApiSearchResultModel;
 import org.springframework.http.HttpEntity;
