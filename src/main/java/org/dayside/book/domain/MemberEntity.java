@@ -28,16 +28,14 @@ public class MemberEntity {
     private Set<BookOrderEntity> bookOrderSet = new HashSet<>();
 
     @Builder
-    public MemberEntity(String email, String password, MemberStatus memberStatus) {
+    private MemberEntity(String email, String password, MemberStatus memberStatus) {
         this.email = email;
         this.password = password;
         this.memberStatus = memberStatus;
     }
 
-    public boolean addBookOrder(BookOrderEntity bookOrder) {
+    public void addBookOrder(BookOrderEntity bookOrder) {
         this.bookOrderSet.add(bookOrder);
         bookOrder.setOrderer(this);
-
-        return true;
     }
 }
