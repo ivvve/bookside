@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>로그인</title>
+	<title>LOGIN</title>
 	<div th:replace="layout/head::head"></div>
 </head>
 
@@ -19,31 +19,34 @@
 
 <!-- Start Align Area -->
 <div class="whole-wrap">
-	<div class="container box_1170">
-		<div class="section-top-border">
-			<div class="mt-10">
-				<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
-			</div>
-			<!-- For Gradient Border Use -->
-			<!-- <div class="mt-10">
-                        <div class="primary-input">
-                            <input id="primary-input" type="text" name="first_name" placeholder="Primary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primary color'">
-                            <label for="primary-input"></label>
-                        </div>
-                    </div> -->
-			<div class="mt-10">
-				<input type="text" name="first_name" placeholder="Primary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Primary color'"
-					   required class="single-input-primary">
-			</div>
-			<div class="mt-10">
-				<input type="text" name="first_name" placeholder="Accent color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Accent color'"
-					   required class="single-input-accent">
-			</div>
-			<div class="mt-10">
-				<input type="text" name="first_name" placeholder="Secondary color" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Secondary color'"
-					   required class="single-input-secondary">
+	<div class="container box_1170" style="margin-top: 50px;">
+
+		<!-- Start Align Area -->
+		<div class="whole-wrap">
+			<div class="container box_1170">
+				<div class="section-top-border" style="width: 400px; margin: auto;">
+					<form>
+						<div class="mt-10">
+							<input id="emailInput" type="text" name="email" placeholder="EMAIL" onfocus="this.placeholder = ''" onblur="this.placeholder = 'EMAIL'" required class="single-input-primary">
+						</div>
+						<div class="mt-10">
+							<input id="passwordInput" type="password" name="password" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'" required class="single-input-accent">
+						</div>
+						<div class="mt-10" style="text-align: center;">
+							<div class="button-group-area mt-40">
+								<a href="#" id="loginButton" class="genric-btn success circle arrow" onclick="login.loginButtonOnClick();">로그인<span class="lnr lnr-arrow-right"></span></a>
+							</div>
+
+							<div class="button-group-area mt-40">
+								<a href="#" id="joinButton" class="genric-btn primary circle arrow" onclick="login.joinButtonOnClick();">가입 신청<span class="lnr lnr-arrow-right"></span></a>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+		<!-- End Align Area -->
+
 	</div>
 </div>
 <!-- End Align Area -->
@@ -54,6 +57,7 @@
 <!-- End footer Area -->
 
 <div th:replace="layout/common-script::common-script"></div>
+<script src="/js/web/login.js"></script>
 
 </body>
 
