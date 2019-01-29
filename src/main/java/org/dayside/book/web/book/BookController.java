@@ -60,4 +60,9 @@ public class BookController {
 
         return ResponseEntity.ok().body(bookDetailResultEntity.getBody());
     }
+
+    @GetMapping("/order")
+    public String bookOrderView() {
+        return "book/order";
+    }
 }
