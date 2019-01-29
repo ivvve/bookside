@@ -1,10 +1,10 @@
-package org.dayside.book.web.book.model;
+package org.dayside.book.web.book.dto;
 
 import lombok.Data;
 import org.dayside.book.util.BookUtils;
 
 @Data
-public class BookSearchModel {
+public class BookSearchDto {
     private String title;
     private String image;
     private String publisher;

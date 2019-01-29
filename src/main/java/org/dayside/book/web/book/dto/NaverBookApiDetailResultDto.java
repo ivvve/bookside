@@ -1,4 +1,4 @@
-package org.dayside.book.web.book.model;
+package org.dayside.book.web.book.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @XmlRootElement(name = "rss")
-public class NaverBookApiDetailResultModel {
+public class NaverBookApiDetailResultDto {
     private Channel channel;
 
     @Data
     private static class Channel {
-        private BookDetailModel item;
+        private BookDetailDto item;
     }
 
     @JsonIgnore
-    public BookDetailModel getBookDeatail() {
+    public BookDetailDto getBookDeatail() {
         return channel.item;
     }
 }
