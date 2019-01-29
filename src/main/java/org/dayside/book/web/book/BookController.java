@@ -26,7 +26,7 @@ public class BookController {
     @GetMapping("/search")
     public String bookSearchView(String keyword, Integer page, Model model) throws UnsupportedEncodingException {
         if (StringUtils.isBlank(keyword)) {
-            return "book-search";
+            return "book/search";
         }
 
         if (page == null) {
@@ -42,7 +42,7 @@ public class BookController {
 
         model.addAttribute("bookSearchResult", booksResult.getBody());
 
-        return "book-search";
+        return "book/search";
     }
 
     @GetMapping("/detail")

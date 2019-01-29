@@ -34,7 +34,7 @@ public class MemberController {
             return "redirect:/book/search";
         }
 
-        return "login";
+        return "member/login";
     }
 
     @PostMapping("/login/validate")
