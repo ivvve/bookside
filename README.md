@@ -1,6 +1,17 @@
 # bookside
 사내 도서 주문 사이트 구현
 
+사용 기술
+- Language
+    - Java 1.8, Javascript
+- Framework
+    - Spring Boot 2.1.1
+    - Hibernate (Spring data JPA)
+    - Bootstrap (CSS)
+- View template engine
+    - Thymeleaf
+
+
 ## 현재 구현 중
 
 #### 접속 URL
