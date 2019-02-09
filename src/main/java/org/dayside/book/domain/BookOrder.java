@@ -22,6 +22,9 @@ public class BookOrder {
     @JoinColumn(name = "ORDERER_ID")
     private Member orderer;
 
+    @Column(nullable = false)
+    private String deliveryAddress;
+
     @Enumerated(EnumType.STRING)
     private BookOrderStatus orderStatus;
 
