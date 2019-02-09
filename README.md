@@ -1,25 +1,49 @@
 # bookside
-사내 도서 주문 사이트 구현
+도서 주문 사이트 구현
 
 사용 기술
 - Language
-    - Java 1.8, Javascript
+    - Java 1.8, Javascript (+ ES6)
 - Framework
-    - Spring Boot 2.1.1
+    - Spring Boot 2.1.2
     - Hibernate (Spring data JPA)
     - Bootstrap (CSS)
 - View template engine
     - Thymeleaf
-
+- ETC
+    - Ehcache
+    - Spring Mail
+    - Spring Security
 
 ## 현재 구현 중
 
-#### 접속 URL
-http://35.189.151.0:8080
+---
 
-#### 현재까지 구현 내용
-- 책 검색 및 상세보기 http://35.189.151.0:8080/book/search
+DB 설계
 
-![](images/book-search1.PNG)
+![](images/bookside_erd.PNG)
 
-![](images/book-search2.PNG)
+---
+
+기능 목록
+- 회원
+    - 로그인 (using Securiy)
+    - 가입 요청
+   
+- 책 검색
+    - 책 검색 (using Kakao book search API, Caching)
+    - 책 정보 가져오기 (using Kakao book search API)
+        - 책 주문에 담기
+ 
+- 책 주문
+    - 내 책 주문 목록
+    - 책 주문하기
+        - 주문 시 관리자 이메일로 해당 주문 내역 전송
+ 
+- 내 정보
+    - 정보 변경
+ 
+- 관리자
+    - 회원 관리 (+ 회원 가입 승인)
+    - 책 주문 관리
+        - 회원 별 요청 현황
