@@ -31,8 +31,8 @@ public class BookOrder {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOK_BOOK_ORDER_JOIN_TABLE",
-            joinColumns = @JoinColumn(name = "BOOK_ORDER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
+            joinColumns = @JoinColumn(name = "BOOK_ORDER_ID", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "BOOK_ID", nullable = false))
     private List<Book> bookList;
 
     @Builder
