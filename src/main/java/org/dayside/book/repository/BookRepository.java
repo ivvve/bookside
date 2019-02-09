@@ -1,10 +1,7 @@
 package org.dayside.book.repository;
 
-import org.dayside.book.domain.BookEntity;
+import org.dayside.book.domain.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-
-public interface BookRepository extends JpaRepository<BookEntity, Long> {
-    public Optional<BookEntity> findByIsbn(String isbn);
+public interface BookRepository extends JpaRepository<Book, Long> {
 }
