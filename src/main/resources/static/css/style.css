@@ -2228,6 +2228,7 @@ img {
   display: block;
 }
 #aa-contact .aa-contact-area .aa-contact-bottom .aa-contact-form input[type="text"],
+#aa-contact .aa-contact-area .aa-contact-bottom .aa-contact-form input[type="password"],
 #aa-contact .aa-contact-area .aa-contact-bottom .aa-contact-form input[type="email"],
 #aa-contact .aa-contact-area .aa-contact-bottom .aa-contact-form input[type="url"] {
   border: none;
