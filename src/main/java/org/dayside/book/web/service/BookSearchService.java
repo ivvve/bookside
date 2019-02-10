@@ -10,12 +10,12 @@ public interface BookSearchService {
      * @param taget 검색 조건 (제목, ISBN ...)
      * @return
      */
-    Page<CommonBookDto> searchBooks(String keyword, String taget);
+    Page<CommonBookDto> searchBooks(String keyword, String taget, int page);
 
     /**
      * API로부터 책 검색
      * @param keyword 검색어
      * @return
      */
-    Page<CommonBookDto> searchBooks(String keyword);
+    Page<CommonBookDto> searchBooks(String keyword, int page);
 }
