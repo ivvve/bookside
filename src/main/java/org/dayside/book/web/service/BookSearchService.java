@@ -7,10 +7,10 @@ public interface BookSearchService {
     /**
      * API로부터 책 검색
      * @param keyword 검색어
-     * @param taget 검색 조건 (제목, ISBN ...)
+     * @param target 검색 조건 (제목, ISBN ...)
      * @return
      */
-    Page<CommonBookDto> searchBooks(String keyword, String taget, int page);
+    Page<CommonBookDto> searchBooks(String keyword, String target, int page);
 
     /**
      * API로부터 책 검색
