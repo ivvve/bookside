@@ -8,12 +8,11 @@
     - Spring Boot 2.1.2
     - Hibernate (Spring data JPA)
     - Bootstrap (CSS)
-- View template engine
-    - Thymeleaf
 - ETC
-    - Ehcache
-    - Spring Mail
-    - Spring Security
+    - Thymeleaf
+    - Ehcache (예정)
+    - Spring Mail (예정)
+    - Spring Security (예정)
 
 ## 현재 구현 중
 
@@ -25,7 +24,7 @@ DB 설계
 
 ---
 
-기능 목록
+기능 목록 (예정)
 - 회원
     - 로그인 (using Securiy)
     - 가입 요청
