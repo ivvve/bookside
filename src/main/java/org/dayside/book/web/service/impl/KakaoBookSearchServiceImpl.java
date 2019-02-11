@@ -30,7 +30,7 @@ public class KakaoBookSearchServiceImpl implements BookSearchService {
                 .queryParam("page", page)
                 .queryParam("query", keyword)
                 .queryParam("target", target)
-                .toUriString();
+                .build().toUriString();
 
         // TODO RestTemplate new 말고 HttpComponentsClientHttpRequestFactory를 통해 생성하기
         RestTemplate restTemplate = new RestTemplate();
