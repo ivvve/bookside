@@ -4,6 +4,9 @@ import org.dayside.book.web.dto.CommonBookDto;
 import org.springframework.data.domain.Page;
 
 public interface BookSearchService {
+    int PAGE_SIZE = 12;
+    String DEFAULT_TARGET = "title";
+
     /**
      * API로부터 책 검색
      * @param keyword 검색어
