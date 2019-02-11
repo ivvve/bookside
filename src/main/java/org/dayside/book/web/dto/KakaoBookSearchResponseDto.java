@@ -1,9 +1,13 @@
 package org.dayside.book.web.dto;
 
 import lombok.Data;
+import org.dayside.book.web.service.BookSearchService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 @Data
@@ -41,9 +45,22 @@ public class KakaoBookSearchResponseDto {
     @Data
     private static class Meta {
          private boolean is_end;
-         private long pageable_count;
-         private long total_count;
+         private int pageable_count; // 검색 가능한 책의 수
+         private int total_count; // 모든 책의 수 (검색 가능한 수는 아님)
     }
 
+    /**
+     * Kakao 책 검색 API 응답을 Page<CommonBookDto> 객체로 변환하여 리턴
+     * @param page 현재 페이지 (0 부터 시작)
+     * @return
+     */
+    public Page<CommonBookDto> toPage(int page) {
+        Pageable pageable = PageRequest.of(page, BookSearchService.PAGE_SIZE);
+        List<CommonBookDto> bookList = documents.stream()
+                .map(Book::toCommonBookDto)
+                .collect(Collectors.toList());
+
+        return new PageImpl(bookList, pageable, meta.pageable_count);
+    }
 }
 
