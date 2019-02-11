@@ -14,13 +14,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class KakaoBookSearchServiceImpl implements BookSearchService {
     private static final String API_URL = "https://dapi.kakao.com/v3/search/book";
 
-    private final String apiKey;
     private final HttpEntity<String> httpEntity;
 
     public KakaoBookSearchServiceImpl(@Value("${kakao.book-search.key}") String apiKey) {
-        this.apiKey = apiKey;
-
-        HttpHeaders httpHeaders = new HttpHeaders();;
+        HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Authorization", apiKey);
         httpEntity = new HttpEntity<>(httpHeaders);
     }
