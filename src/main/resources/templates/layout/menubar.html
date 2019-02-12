@@ -19,24 +19,22 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-                        <li class="active"><a th:href="@{/index}">HOME</a></li>
+                        <li class="active"><a th:href="@{/search}">SEARCH</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" th:href="@{/properties}">PROPERTIES <span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" th:href="@{/properties}">ORDER <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a th:href="@{/properties}">PROPERTIES</a></li>
-                                <li><a th:href="@{/properties-detail}">PROPERTIES DETAIL</a></li>
+                                <li><a th:href="@{/cart}">CART</a></li>
+                                <li><a th:href="@{/orderList}">ORDER LIST</a></li>
                             </ul>
                         </li>
-                        <li><a th:href="@{/gallery}">GALLERY</a></li>
+                        <li><a th:href="@{/gallery}">MY</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" th:href="@{/blog-archive}">BLOG <span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" th:href="@{/blog-archive}">ADMIN <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a th:href="@{/blog-archive}">BLOG</a></li>
-                                <li><a th:href="@{/blog-single}">BLOG DETAILS</a></li>
+                                <li><a th:href="@{/admin/memberManaging}">MEMBER MANAGING</a></li>
+                                <li><a th:href="@{/admin/bookManaging}">ORDER MANAGING</a></li>
                             </ul>
                         </li>
-                        <li><a th:href="@{/contact}">CONTACT</a></li>
-                        <li><a th:href="@{/404}">404 PAGE</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
