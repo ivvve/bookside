@@ -79,19 +79,33 @@
                                 <div th:if="${param.keyword != null and param.page != null}" class="col-md-12" style="text-align: center;">
                                     <div class="aa-properties-content-bottom">
                                         <nav>
-                                            <ul class="pagination">
+                                            <ul class="pagination"
+                                                th:with="start=${T(Math).floor(bookList.number/5)*5 + 1},
+                                                        last=(${start + 9 < bookList.totalPages ? start + 4 : bookList.totalPages})">
                                                 <li>
-                                                    <a aria-label="Previous" href="#">
+                                                    <a aria-label="Previous" th:if="${!bookList.first}" th:href="@{/search(keyword=${param.keyword},target=${param.target},page=1)}">
                                                         <span aria-hidden="true">«</span>
                                                     </a>
                                                 </li>
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li class="active"><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
+
+                                                <li th:class="${bookList.first} ? 'disabled'">
+                                                    <a th:if="${!bookList.first}" th:href="${bookList.first} ? '#' : @{/search(keyword=${param.keyword},target=${param.target},page=${bookList.number})}" aria-label="Previous">
+                                                        <span aria-hidden="true">&lt;</span>
+                                                    </a>
+                                                </li>
+
+                                                <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == bookList.number + 1} ? 'active'">
+                                                    <a th:text="${page}" th:href="@{/search(keyword=${param.keyword},target=${param.target},page=${page})}"></a>
+                                                </li>
+
+                                                <li th:class="${bookList.last} ? 'disabled'">
+                                                    <a aria-label="Next" th:if="${!bookList.last}" th:href="${bookList.last} ? '#' : @{/search(keyword=${param.keyword},target=${param.target},page=${bookList.number + 2})}">
+                                                        <span aria-hidden="true">&gt;</span>
+                                                    </a>
+                                                </li>
+
                                                 <li>
-                                                    <a aria-label="Next" href="#">
+                                                    <a aria-label="Next" th:if="${!bookList.last}" th:href="@{/search(keyword=${param.keyword},target=${param.target},page=${bookList.totalPages})}">
                                                         <span aria-hidden="true">»</span>
                                                     </a>
                                                 </li>
