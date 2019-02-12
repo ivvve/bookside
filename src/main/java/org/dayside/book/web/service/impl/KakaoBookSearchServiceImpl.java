@@ -4,12 +4,15 @@ import org.dayside.book.web.dto.CommonBookDto;
 import org.dayside.book.web.dto.KakaoBookSearchResponseDto;
 import org.dayside.book.web.service.BookSearchService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Page;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@EnableCaching
 @Service
 public class KakaoBookSearchServiceImpl implements BookSearchService {
     private static final String API_URL = "https://dapi.kakao.com/v3/search/book";
@@ -22,6 +25,7 @@ public class KakaoBookSearchServiceImpl implements BookSearchService {
         httpEntity = new HttpEntity<>(httpHeaders);
     }
 
+    @Cacheable(cacheNames = "bookSearchCache", key = "#keyword.concat('-').concat(#target).concat('-').concat(#page)")
     @Override
     public Page<CommonBookDto> searchBooks(String keyword, String target, int page) {
         String apiRequestUri = UriComponentsBuilder.fromHttpUrl(API_URL)
