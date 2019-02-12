@@ -59,7 +59,7 @@
                         <div class="aa-blog-content">
                             <div th:if="${!#strings.isEmpty(param.keyword) and !#strings.isEmpty(param.page)}" class="row">
 
-                                <div th:each="book : ${bookList}" class="col-md-4 col-sm-6">
+                                <div th:each="book : ${bookList}" class="col-md-4 col-sm-4">
                                     <article class="aa-blog-single" style="height: 420px;">
                                         <figure class="aa-blog-img">
                                             <a href="#"><img th:alt="${book.title}" th:src="${book.imageUrl}"></a>

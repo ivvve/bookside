@@ -1249,7 +1249,7 @@ img {
   display: inline;
   float: left;
   position: relative;
-  width: 100%;
+  width: 180px;
 }
 .aa-blog-single .aa-blog-img img {
   max-width: 100%;
