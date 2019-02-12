@@ -7,17 +7,21 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Collections;
+
 @EnableCaching
 @Service
 public class KakaoBookSearchServiceImpl implements BookSearchService {
     private static final String API_URL = "https://dapi.kakao.com/v3/search/book";
-
     private final HttpEntity<String> httpEntity;
+    private static final Page emptyPage = new PageImpl(Collections.emptyList(), PageRequest.of(0, 1), 0);
 
     public KakaoBookSearchServiceImpl(@Value("${kakao.book-search.key}") String apiKey) {
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -47,7 +51,7 @@ public class KakaoBookSearchServiceImpl implements BookSearchService {
             return bookSearchResponse.getBody().toPage(page);
         }
 
-        return null;
+        return emptyPage;
     }
 
     @Override
