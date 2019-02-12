@@ -8,9 +8,10 @@
     - Spring Boot 2.1.2
     - Hibernate (Spring data JPA)
     - Bootstrap (CSS)
+    - JUnit (Spring test)
 - ETC
     - Thymeleaf
-    - Ehcache (예정)
+    - Ehcache
     - Spring Mail (예정)
     - Spring Security (예정)
 
@@ -30,8 +31,8 @@ DB 설계
     - 가입 요청
    
 - 책 검색
-    - 책 검색 (using Kakao book search API, Caching)
-    - 책 정보 가져오기 (using Kakao book search API)
+    - 책 검색 (using Kakao book search API, Ehcache Caching)
+    - 책 정보 가져오기 (using Kakao book search API, Ehcache Caching)
         - 책 주문에 담기
  
 - 책 주문
